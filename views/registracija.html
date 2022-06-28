@@ -1,0 +1,110 @@
+% setdefault('napaka', '')
+% setdefault('znacka', 0)
+% setdefault('naslov', 'Registracija')
+% rebase('base.html', napaka=napaka, naslov=naslov)
+
+<form action="{{url('registracija_post')}}" method="post" autocomplete="off" 
+style=" margin: auto; margin-top: 40px; width: 15cm;">
+
+  <div class="row g-3 needs-validation was-validated" >
+    <div class="input-group" >
+      <span class="input-group-text" id="basic-addon1">Ime</span>
+      <input type="text" name="ime" class="form-control" value="{{ime}}" aria-label="Username" 
+      aria-describedby="basic-addon1" id="validationTooltip01" 
+      required 
+      oninput="this.setCustomValidity('')"
+      oninvalid="this.setCustomValidity('Obvezno polje')">
+    </div>
+  </div>
+    <br>
+  <div class="row g-3 needs-validation was-validated">
+    <div class="input-group" >
+      <span class="input-group-text" id="basic-addon1">Priimek</span>
+        <input type="text" name="priimek" value="{{priimek}}" class="form-control" aria-label="Username" 
+        aria-describedby="basic-addon1" id="validationTooltip01" 
+        required 
+        oninput="this.setCustomValidity('')"
+        oninvalid="this.setCustomValidity('Obvezno polje')">
+      </div>
+  </div> 
+  <br>
+
+  <div class="row g-3 needs-validation was-validated">
+    <div class="col-md-6">
+      <div class="input-group ">
+        <span class="input-group-text">Spol</span>
+        <input type="radio" class="btn-check" name="spol" value="M" id="option1" {{'checked' if spol == 'M' else ''}}>
+        <label class="btn btn-secondary" for="option1">Moški</label>
+        
+        <input type="radio" class="btn-check" name="spol" value="F" id="option2" >
+        <label class="btn btn-secondary" for="option2">Ženska</label>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="input-group ">
+        <span class="input-group-text" id="basic-addon1">Datum rojstva</span>
+        <input class="input-group-text" type="date" name="datum_rojstva"
+        value="{{'2000-01-01' if datum == '' else datum}}"
+        min="1900-01-01" max="2002-12-31" required
+        oninput="this.setCustomValidity('')"
+        oninvalid="this.setCustomValidity('Obvezno polje')">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row g-3 needs-validation was-validated">
+    <div class="input-group">
+        <span class="input-group-text" id="basic-addon1">Država</span>
+        <input type="text" class="form-control"  name="drzava" value="{{drzava}}" 
+        aria-label="Country" 
+        aria-describedby="basic-addon1" id="validationTooltip01" 
+        required 
+        oninput="this.setCustomValidity('')"
+        oninvalid="this.setCustomValidity('Obvezno polje')">
+      </div>
+  </div> 
+    <br>
+  <div class="row g-3 needs-validation was-validated">
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1">Email</span>
+      <input type="email" class="form-control" name="email" value="{{email}}"
+      aria-label="Email" 
+      aria-describedby="basic-addon1" id="validationTooltip01" required 
+      oninput="this.setCustomValidity('')"
+      oninvalid="this.setCustomValidity('Obvezno polje')">
+    </div>
+  </div>
+  <br>  
+  <div class="row g-3 needs-validation was-validated">
+    <div class="input-group ">
+      <span class="input-group-text" id="basic-addon1">Geslo</span>
+      <input type="password" class="form-control" name="geslo"
+      aria-label="Password" 
+      aria-describedby="basic-addon1" id="validationTooltip01" 
+      required 
+      oninput="this.setCustomValidity('')"
+      oninvalid="this.setCustomValidity('Obvezno polje')">
+    </div>
+  </div>
+  <br>
+  <div class="row g-3 needs-validation was-validated">
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1">Ponovi geslo</span>
+      <input type="password" class="form-control" name="geslo2"
+      aria-label="Password" 
+      aria-describedby="basic-addon1" id="validationTooltip01" required 
+      oninput="this.setCustomValidity('')"
+      oninvalid="this.setCustomValidity('Obvezno polje')">
+    </div>
+  </div>
+  <br>
+  <div class="row g-3 needs-validation was-validated">
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button type="submit" class="btn btn-outline-light">
+        Registriraj se!
+      </button>
+    </div>
+  </div>
+    
+</form>
